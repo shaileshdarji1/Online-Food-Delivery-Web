@@ -1,0 +1,46 @@
+package com.food.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.sql.Date;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class MenuType {
+
+    @Id
+    @SequenceGenerator(
+            name = "menutype_sequence",
+            sequenceName= "menutype_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "menutype_sequence"
+    )
+    private int menuTypeId;
+    private String name;
+    private String description;
+    private float price;
+    private int quality;
+    private String imageUrl;
+    private boolean isActive;
+    private Date createdDate;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "menu_id",
+            referencedColumnName = "menuId"
+    )
+    private Menu menu;
+
+}
