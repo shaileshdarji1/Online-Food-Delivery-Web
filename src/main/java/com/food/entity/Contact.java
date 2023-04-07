@@ -1,11 +1,14 @@
 package com.food.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.sql.Date;
 
 @Entity
@@ -16,15 +19,7 @@ import java.sql.Date;
 public class Contact {
 
     @Id
-    @SequenceGenerator(
-            name = "contactid_sequence",
-            sequenceName ="contactid_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "contactid_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private  int contactId;
     private String name;
     private String email;

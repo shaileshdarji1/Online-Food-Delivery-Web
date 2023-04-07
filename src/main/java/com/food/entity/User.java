@@ -1,11 +1,12 @@
 package com.food.entity;
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -16,15 +17,7 @@ import java.sql.Date;
 public class User {
 
     @Id
-    @SequenceGenerator(
-            name = "userid_sequence",
-            sequenceName = "userid_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "userid_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String name;
     @Column(

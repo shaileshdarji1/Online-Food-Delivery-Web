@@ -1,11 +1,11 @@
 package com.food.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -16,16 +16,8 @@ import java.sql.Date;
 public class MenuType {
 
     @Id
-    @SequenceGenerator(
-            name = "menutype_sequence",
-            sequenceName= "menutype_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "menutype_sequence"
-    )
-    private int menuTypeId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int menutypeId;
     private String name;
     private String description;
     private float price;

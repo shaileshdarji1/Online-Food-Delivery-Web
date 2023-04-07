@@ -1,11 +1,12 @@
 package com.food.entity;
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -15,15 +16,7 @@ import java.sql.Date;
 @Builder
 public class Orders {
     @Id
-    @SequenceGenerator(
-            name="orderid_sequence",
-            sequenceName ="orderid_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy= GenerationType.SEQUENCE,
-            generator = "orderid_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int orderId;
     @Column(
             unique = true
@@ -32,4 +25,22 @@ public class Orders {
     private int quality;
     private String status;
     private Date createdDate;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name="user_id",
+            referencedColumnName = "userId"
+    )
+    private User user;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name="menutype_id",
+            referencedColumnName = "menutypeId"
+    )
+    private MenuType menuType;
 }
