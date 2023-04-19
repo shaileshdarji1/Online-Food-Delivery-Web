@@ -1,47 +1,44 @@
 package com.food.controller;
 
-import com.food.dao.UserRepository;
 import com.food.entity.User;
+import com.food.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
 public class HomeController {
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @RequestMapping("/signup")
-    public String signup(){
+    public String signup() {
         return "signup";
     }
 
-    @RequestMapping(value = "/do_register",method = RequestMethod.POST)
-    public String registerUser(
+    @RequestMapping(value = "/do_register", method = RequestMethod.POST)
+    public String registerUse(@ModelAttribute User user) {
 
-            @RequestParam("username") String username,
-            @RequestParam("email") String email,
-            @RequestParam("name") String name,
-            @RequestParam("mobile") String mobile,
-            @RequestParam("password") String password
-            , Model model){
-        User user= User.builder()
-                .username(username)
-                .email(email)
-                .name(name)
-                .mobile(mobile)
-                .password(password).build();
-        userRepository.save(user);
-        return "signup";
+        User usr = userService.createUser(user);
+        if(usr != null){
+            System.out.println("Register Successfully");
+        }
+        else{
+            System.out.println("Something went wrong in server");
+        }
+        return "redirect:/signup";
+    }
+
+    @GetMapping("/do_login")
+    public String loginUser(@ModelAttribute User user){
+        System.out.println(user);
+        return "index";
     }
 
 
