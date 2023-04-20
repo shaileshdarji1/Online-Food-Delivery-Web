@@ -35,11 +35,5 @@ public class HomeController {
         return "redirect:/signup";
     }
 
-    @GetMapping("/do_login")
-    public String loginUser(@ModelAttribute User user){
-        System.out.println(user);
-        return "index";
-    }
-
 
 }
