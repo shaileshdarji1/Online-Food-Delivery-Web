@@ -15,28 +15,29 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UserDetailsService getUserDetailsService(){
+    public UserDetailsService getUserDetailsService() {
         return new UserDetailsServiceImpl();
     }
 
     @Bean
-    public BCryptPasswordEncoder getPasswordEncoder(){
+    public BCryptPasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
-                .antMatchers("/admin/**").hasRole("Admin")
-                .antMatchers("/user/**").hasRole("User")
-                .antMatchers("/**").permitAll()
+        http.cors().and().csrf().disable().authorizeHttpRequests()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/signup","/do_register","/login").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login");
+                .loginPage("/login").defaultSuccessUrl("/user/");
 
     }
 
-    public DaoAuthenticationProvider getDaoAuthProvider(){
+    public DaoAuthenticationProvider getDaoAuthProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(getUserDetailsService());
         daoAuthenticationProvider.setPasswordEncoder(getPasswordEncoder());

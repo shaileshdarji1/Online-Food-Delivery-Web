@@ -67,6 +67,7 @@
                 	<a href="/login">Already have an account?</a>
                 	<a href="#">Forgot Password?</a>
                 	</div>
+                	<div><h4 style="color:red">${error}<h4></div>
                 	<input type="submit" class="btn" value="Signup">
                 </form>
             </div>

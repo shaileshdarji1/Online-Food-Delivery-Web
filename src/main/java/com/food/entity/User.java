@@ -30,6 +30,6 @@ public class User {
     private String postcode;
     private String password;
     private String imageUrl;
-    private String role="User";
+    private String role="ROLE_USER";
     private Date date;
 }

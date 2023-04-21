@@ -15,7 +15,7 @@
 			<img src="/image/scooter.jpg">
 		</div>
 		<div class="login-content">
-			<form action="/login">
+			<form action="/login" method="POST">
 				<img src="/image/avatar.svg">
 				<h2 class="title">Welcome</h2>
            		<div class="input-div one">
@@ -24,7 +24,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Username</h5>
-           		   		<input type="text" class="input">
+           		   		<input name="username" type="text" class="input">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -33,7 +33,7 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
+           		    	<input name="password" type="password" class="input">
             	   </div>
             	</div>
             	<div class="account">
