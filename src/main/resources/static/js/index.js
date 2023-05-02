@@ -1,5 +1,5 @@
 import {foodItem} from './fooditem.js';
-//import {category} from 'http://localhost:8081/category/';
+
 var dd_main = document.querySelector(".dd_main");
 
 	dd_main.addEventListener("click", function(){
@@ -7,16 +7,6 @@ var dd_main = document.querySelector(".dd_main");
 	})
 function displayItems(){
 
-    var food = document.getElementById('food-items');
-    console.log(category);
-    category.map(item=>{
-      var head = document.createElement('div');
-      head.setAttribute('id',item);
-      var paragraph = document.createElement('p');
-      paragraph.setAttribute('id','category-name');
-      head.appendChild(paragraph);
-      food.appendChild(head);
-    })
     var biryani= document.getElementById('biryani');
     var paneer=  document.getElementById('paneer');
     var chicken=  document.getElementById('chicken');
@@ -115,91 +105,8 @@ function displayItems(){
 
     })
 
-    vegetableData.map(item=>{
-        var itemCard= document.createElement('div');
-        itemCard.setAttribute('id','item-card')
 
-        var cardTop= document.createElement('div');
-        cardTop.setAttribute('id','card-top');
-
-        var img= document.createElement('img');
-        img.src=item.img;
-
-        var itemName= document.createElement('p');
-        itemName.setAttribute('id','item-name');
-        itemName.innerText= item.name;
-
-        var itemPrice= document.createElement('p');
-        itemPrice.setAttribute('id','item-price');
-        itemPrice.innerText= 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-
-        vegetable.appendChild(itemCard)
-
-    })
-
-    chineseData.map(item=>{
-        var itemCard= document.createElement('div');
-        itemCard.setAttribute('id','item-card')
-
-        var cardTop= document.createElement('div');
-        cardTop.setAttribute('id','card-top');
-
-        var img= document.createElement('img');
-        img.src=item.img;
-
-        var itemName= document.createElement('p');
-        itemName.setAttribute('id','item-name');
-        itemName.innerText= item.name;
-
-        var itemPrice= document.createElement('p');
-        itemPrice.setAttribute('id','item-price');
-        itemPrice.innerText= 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-
-        chinese.appendChild(itemCard)
-
-    })
-
-    southData.map(item=>{
-        var itemCard= document.createElement('div');
-        itemCard.setAttribute('id','item-card')
-
-        var cardTop= document.createElement('div');
-        cardTop.setAttribute('id','card-top');
-
-        var img= document.createElement('img');
-        img.src=item.img;
-
-        var itemName= document.createElement('p');
-        itemName.setAttribute('id','item-name');
-        itemName.innerText= item.name;
-
-        var itemPrice= document.createElement('p');
-        itemPrice.setAttribute('id','item-price');
-        itemPrice.innerText= 'Price : $ ' + item.price;
-
-        itemCard.appendChild(cardTop);
-        itemCard.appendChild(img);
-        itemCard.appendChild(itemName);
-        itemCard.appendChild(itemPrice);
-
-        southIndian.appendChild(itemCard)
-
-    })
 }
-displayItems();
-
 function selectTaste(){
     var categoryList= document.getElementById('category-list');
 
