@@ -25,13 +25,6 @@ function getCategory(){
     htmlTemplate +='<div id="'+item.name+'"><p id="category-name">'+item.name+'</p></div>';
     }
     food.innerHTML=htmlTemplate;
-//          var head = document.createElement('div');
-//          head.setAttribute('id',${data.name}');
-//          var paragraph = document.createElement('p');
-//          paragraph.setAttribute('id','category-name');
-//           paragraph.innerText=${data.name};
-//          head.appendChild(paragraph);
-//          food.appendChild(head);
 
      }
 }
