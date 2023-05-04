@@ -33,7 +33,7 @@ public class Orders {
             name="user_id",
             referencedColumnName = "userId"
     )
-    private User user;
+    private Users users;
 
     @ManyToOne(
             cascade = CascadeType.ALL

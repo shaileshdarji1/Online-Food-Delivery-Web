@@ -11,9 +11,62 @@
     <script src="/js/loginSuccess.js"></script>
 </head>
 <body>
-    <%@ include file = "header.jsp" %>
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">Online Food Delivery</a>
+        </div>
+        <div class="nav_right">
+            <ul>
+                <li class="nr_li">
+                    <i class="fa fa-shopping-cart"></i>
+                </li>
+                <li class="nr_li">
+                    <i class="fa fa-shopping-bag"></i>
+                </li>
+
+
+                <li class="nr_li dd_main">
+                    <img src="/image/user.png" alt="profile_img">
+
+                    <div class="dd_menu">
+                        <div class="dd_left">
+                            <ul>
+                                <li><i class="fas fa-map-marker-alt" ></i></li>
+                                <li><i class="far fa-star"></i></li>
+                                <li><i class="far fa-plus-square"></i></li>
+                                <li><i class="fas fa-cog"></i></li>
+                                <li><i class="fas fa-download"></i></li>
+                                <li><i class="fas fa-sign-out-alt"></i></li>
+                            </ul>
+                        </div>
+                        <div class="dd_right">
+                            <ul>
+                                <li>Location</li>
+                                <li>Favorites</li>
+                                <li>Addpeople</li>
+                                <li>Settings</li>
+                                <li>Downloads</li>
+                                <li>Logout</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="container" id="container">
-        <%@ include file = "sidebar.jsp" %>
+        <div id="menu">
+            <div class="menu-item">
+                <a href="#">Homepage</a>
+                <a href="#">Category</a>
+                <a href="#">Your Orders</a>
+                <a href="#">Wishlists</a>
+                <a href="#">Cart</a>
+                <a href="#">Contact</a>
+                <a href="#">Checkout</a>
+            </div>
+        </div>
+
         <div id="food-container">
 
             <div id="food-items" class="d-food-items">
@@ -26,7 +79,6 @@
                 <div class="border"></div>
             </div>
         </div>
-      </div>
     <script src="/js/index.js" type="module"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </body>

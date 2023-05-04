@@ -25,12 +25,12 @@ public class Carts {
             name = "user_id",
             referencedColumnName = "userId"
     )
-    private User user;
+    private Users users;
     @ManyToOne(
             cascade = CascadeType.ALL
     )
     @JoinColumn(
-            name="menutype_id",
+            name = "menutype_id",
             referencedColumnName = "menutypeId"
     )
     private MenuType menuType;

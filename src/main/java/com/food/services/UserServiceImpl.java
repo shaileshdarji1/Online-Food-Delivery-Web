@@ -1,6 +1,6 @@
 package com.food.services;
 
-import com.food.entity.User;
+import com.food.entity.Users;
 import com.food.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +12,8 @@ public class UserServiceImpl implements UserService{
     UserRepository userRepository;
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public Users createUser(Users users) {
+        return userRepository.save(users);
     }
 
     @Override
