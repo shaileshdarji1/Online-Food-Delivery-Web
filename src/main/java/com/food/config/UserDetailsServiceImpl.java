@@ -1,6 +1,6 @@
 package com.food.config;
 
-import com.food.entity.User;
+import com.food.entity.Users;
 import com.food.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,9 +15,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user=userRepository.findByUsername(username);
-        if(user!=null){
-            return new CustomUserDetails(user);
+        Users users =userRepository.findByUsername(username);
+        if(users !=null){
+            return new CustomUserDetails(users);
         }
         throw new UsernameNotFoundException("user not available");
     }

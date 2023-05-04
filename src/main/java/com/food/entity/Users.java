@@ -14,15 +14,13 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String name;
-    @Column(
-            unique = true
-    )
+    @Column(unique = true)
     private String username;
     private String mobile;
     private String email;

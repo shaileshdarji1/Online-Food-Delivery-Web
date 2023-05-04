@@ -1,6 +1,6 @@
 package com.food.controller;
 
-import com.food.entity.User;
+import com.food.entity.Users;
 import com.food.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,14 +30,14 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/do_register", method = RequestMethod.POST)
-    public String registerUse(@ModelAttribute User user, ModelMap model) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        if(userService.checkUsername(user.getUsername())){
+    public String registerUse(@ModelAttribute Users users, ModelMap model) {
+        users.setPassword(passwordEncoder.encode(users.getPassword()));
+        if(userService.checkUsername(users.getUsername())){
             model.addAttribute("error","Username Already Exits");
             return "/signup";
         }
         else {
-            User usr = userService.createUser(user);
+            Users usr = userService.createUser(users);
             if (usr != null) {
                 model.addAttribute("success","User Register Successfully");
             } else {
