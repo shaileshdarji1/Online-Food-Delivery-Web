@@ -11,4 +11,9 @@ public class UserController {
     public String home(){
         return "index";
     }
+
+    @RequestMapping("/cart")
+    public String cart(){
+        return "cart";
+    }
 }
