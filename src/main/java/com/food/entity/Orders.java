@@ -16,13 +16,13 @@ import java.sql.Date;
 @Builder
 public class Orders {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int orderId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer orderId;
     @Column(
             unique = true
     )
     private String orderName;
-    private int quality;
+    private Integer quality;
     private String status;
     private Date createdDate;
 
@@ -39,8 +39,8 @@ public class Orders {
             cascade = CascadeType.ALL
     )
     @JoinColumn(
-            name="menutype_id",
-            referencedColumnName = "menutypeId"
+            name="item_id",
+            referencedColumnName = "itemId"
     )
-    private MenuType menuType;
+    private Item item;
 }

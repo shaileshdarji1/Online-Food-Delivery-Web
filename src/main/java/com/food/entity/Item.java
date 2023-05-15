@@ -13,26 +13,26 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MenuType {
+public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int menutypeId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer itemId;
     private String name;
     private String description;
-    private float price;
-    private int quality;
+    private Float price;
     private String imageUrl;
     private boolean isActive;
     private Date createdDate;
 
     @ManyToOne(
-            cascade = CascadeType.ALL
+            cascade = CascadeType.ALL,
+            fetch=FetchType.EAGER
     )
     @JoinColumn(
-            name = "menu_id",
-            referencedColumnName = "menuId"
+            name = "category_id",
+            referencedColumnName = "categoryId"
     )
-    private Menu menu;
+    private Category category;
 
 }

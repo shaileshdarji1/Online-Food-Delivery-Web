@@ -22,18 +22,18 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
-            <a href="/index.html">
+            <a href="http://localhost:8080/admin/dashboard">
               <span class="material-icons-outlined">dashboard</span> Dashboard
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="/category.html">
+            <a href="http://localhost:8080/admin/category">
               <span class="material-icons-outlined">inventory_2</span> Category
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">fact_check</span> Inventory
+            <a href="http://localhost:8080/admin/item">
+              <span class="material-icons-outlined">fact_check</span> Item
             </a>
           </li>
           <li class="sidebar-list-item">

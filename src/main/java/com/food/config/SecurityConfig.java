@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().authorizeHttpRequests()
                 .antMatchers("/admin/**").permitAll()
                 .antMatchers("/user/**").hasRole("USER")
-                .antMatchers("/signup","/do_register","/login").permitAll()
+                .antMatchers("/signup", "/do_register", "/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -40,13 +40,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login");
+                .logoutSuccessUrl("/login").and().httpBasic();
 
     }
+
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/resources/**", "/js/**", "/css/**", "/image/**");
     }
+
     public DaoAuthenticationProvider getDaoAuthProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(getUserDetailsService());

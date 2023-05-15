@@ -19,8 +19,8 @@ import java.sql.Date;
 public class Contact {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int contactId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  Integer contactId;
     private String name;
     private String email;
     private String  subject;

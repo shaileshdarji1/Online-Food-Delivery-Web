@@ -16,11 +16,11 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Menu {
+public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int menuId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer categoryId;
     private String name;
     private String imageUrl;
     private boolean isActive;

@@ -17,8 +17,8 @@ import java.sql.Date;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer userId;
     private String name;
     @Column(
             unique = true

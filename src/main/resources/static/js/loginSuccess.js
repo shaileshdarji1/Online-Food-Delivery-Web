@@ -4,9 +4,10 @@ $( document ).ready(function() {
     getCategory();
 });
 
+
 function getCategory(){
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET','http://localhost:8081/category/',true);
+let xhr = new XMLHttpRequest();
+    xhr.open('GET','http://localhost:8080/category/',true);
 
     xhr.send()
 
@@ -25,6 +26,5 @@ function getCategory(){
     htmlTemplate +='<div id="'+item.name+'"><p id="category-name">'+item.name+'</p></div>';
     }
     food.innerHTML=htmlTemplate;
-
-     }
+}
 }

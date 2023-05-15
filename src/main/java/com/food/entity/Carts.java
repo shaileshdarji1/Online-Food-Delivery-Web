@@ -15,9 +15,9 @@ import javax.persistence.*;
 public class Carts {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cartId;
-    private int quality;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer cartId;
+    private Integer quality;
     @ManyToOne(
             cascade = CascadeType.ALL
     )
@@ -30,9 +30,9 @@ public class Carts {
             cascade = CascadeType.ALL
     )
     @JoinColumn(
-            name="menutype_id",
-            referencedColumnName = "menutypeId"
+            name="item_id",
+            referencedColumnName = "itemId"
     )
-    private MenuType menuType;
+    private Item item;
 
 }
