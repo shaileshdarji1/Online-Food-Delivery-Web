@@ -17,7 +17,7 @@ public class Carts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cartId;
-    private Integer quality;
+    private Integer quantity;
     @ManyToOne(
             cascade = CascadeType.ALL
     )

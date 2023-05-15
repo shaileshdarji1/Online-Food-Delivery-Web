@@ -25,14 +25,14 @@
      <div class="container main-container">
        <div class="row">
        <div class="col-md-4 offset-md-4">
-       <form action="/admin/add_category" method="POST">
+       <form action="/admin/add_category" method="POST" enctype="multipart/form-data">
          <div class="form-group">
            <label for="menuName">Menu Name</label>
            <input type="text" class="form-control" name="name" id="menu-name" placeholder="Enter Menu name">
          </div>
           <div class="form-group">
              <label for="exampleFormControlFile1">Menu Image</label>
-             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="imageUrl">
+             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
            </div>
          <div class="form-check">
            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="active" value="true">

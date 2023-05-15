@@ -25,7 +25,7 @@
      <div class="container main-container">
        <div class="row">
        <div class="col-md-4 offset-md-4">
-       <form action="/admin/add_item" method="POST">
+       <form action="/admin/add_item" method="POST" enctype="multipart/form-data">
          <div class="form-group">
            <label for="itemName">Item Name</label>
            <input type="text" class="form-control" name="name" id="menu-name" placeholder="Enter Item name">

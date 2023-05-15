@@ -5,10 +5,16 @@ $( document ).ready(function() {
 });
 
 $(document).on('click', '.btnedit', function(){
-    var data = categoryData[this.id-1];
+    var data = null;
+    for (var i = 0, len = categoryData.length; i < len; ++i) {
+    var obj = categoryData[i]
+    if (obj.categoryId==this.id) {
+        data = obj;
+        break;
+    }
+}
     document.getElementById('modal_title').innerHTML="Update Category";
     var modal = document.getElementById("modal_body");
-
     let htmlTemplate ='';
         htmlTemplate +='<div class="form-group">'+
                                    '<span>Menu Name</span>'+

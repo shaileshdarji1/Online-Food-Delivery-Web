@@ -13,8 +13,8 @@ class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemRepository itemRepository;
     @Override
-    public Item getItem(Integer menutype_id) {
-        return itemRepository.findItem(menutype_id);
+    public Item getItem(Integer item_id) {
+        return itemRepository.findItem(item_id);
     }
 
     @Override
