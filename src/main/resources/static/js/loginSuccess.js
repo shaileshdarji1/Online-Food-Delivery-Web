@@ -24,7 +24,7 @@ let xhr = new XMLHttpRequest();
      var food = document.getElementById('food-items');
     let htmlTemplate ='';
     for(let item of data){
-    htmlTemplate +='<div id="'+item.name+'"><p id="category-name">'+item.name+'</p></div>';
+    htmlTemplate +='<div><p id="category-name">'+item.name+'</p></div><div class="row" id="'+item.name+'"></div>';
     }
     food.innerHTML=htmlTemplate;
 }
@@ -47,29 +47,20 @@ let xhr = new XMLHttpRequest();
 
         for(let item of data){
         var food = document.getElementById(item.category.name);
-        var itemCard= document.createElement('div');
-                         itemCard.setAttribute('id','item-card')
+        // Create a new div element to hold the code
+        var newDiv = document.createElement('div');
+        newDiv.className = 'col-md-3 mt-3';
 
-                         var cardTop= document.createElement('div');
-                         cardTop.setAttribute('id','card-top');
-
-                         var img= document.createElement('img');
-                         img.src="/image/item/"+item.imageUrl;
-
-                         var itemName= document.createElement('p');
-                         itemName.setAttribute('id','item-name');
-                         itemName.innerText= item.name;
-
-                         var itemPrice= document.createElement('p');
-                         itemPrice.setAttribute('id','item-price');
-                         itemPrice.innerText= 'Price :' + item.price;
-
-                         itemCard.appendChild(cardTop);
-                         itemCard.appendChild(img);
-                         itemCard.appendChild(itemName);
-                         itemCard.appendChild(itemPrice);
-
-                         food.appendChild(itemCard);
+        // Set the innerHTML of the new div with the provided code
+        newDiv.innerHTML = '<div class="card" style="width: 15rem;">'+
+                '<img class="card-img-top" src="/image/item/'+item.imageUrl+'" alt="Card image cap">'+
+                '<div class="card-body">'+
+                    '<h5 class="card-title">'+item.name+'</h5>'+
+                    '<p class="card-text">'+item.description+'</p>'+
+                    '<a href="#" class="btn btn-primary">Add Cart</a>'+
+                '</div>'+
+            '</div>';
+        food.appendChild(newDiv);
         }
 
         }

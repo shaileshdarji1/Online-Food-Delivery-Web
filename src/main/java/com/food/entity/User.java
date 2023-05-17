@@ -15,7 +15,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 public class User {
-
+    @Basic(fetch = FetchType.LAZY)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
@@ -30,6 +30,6 @@ public class User {
     private String postcode;
     private String password;
     private String imageUrl;
-    private String role="ROLE_USER";
+    private String role = "ROLE_USER";
     private Date date;
 }

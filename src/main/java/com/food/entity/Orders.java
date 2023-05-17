@@ -27,19 +27,16 @@ public class Orders {
     private Date createdDate;
 
     @ManyToOne(
-            cascade = CascadeType.ALL
     )
     @JoinColumn(
-            name="user_id",
+            name = "user_id",
             referencedColumnName = "userId"
     )
     private User user;
 
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
+    @ManyToOne()
     @JoinColumn(
-            name="item_id",
+            name = "item_id",
             referencedColumnName = "itemId"
     )
     private Item item;

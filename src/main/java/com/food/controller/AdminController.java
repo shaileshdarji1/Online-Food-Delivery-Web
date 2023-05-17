@@ -8,7 +8,6 @@ import com.food.services.CategoryService;
 import com.food.services.ItemService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,7 +61,7 @@ public class AdminController {
                 System.out.println("File is Empty");
             } else {
                 category.setImageUrl(file.getOriginalFilename());
-                Path path = Paths.get(Constant.CATEGORY_PATH +File.separator+file.getOriginalFilename());
+                Path path = Paths.get(Constant.CATEGORY_PATH_LINUX +File.separator+file.getOriginalFilename());
                 Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
             }
             if (category != null) {
@@ -84,7 +83,7 @@ public class AdminController {
             System.out.println("File is Empty");
         } else {
             item.setImageUrl(file.getOriginalFilename());
-            Path path = Paths.get(Constant.ITEM_PATH +File.separator+file.getOriginalFilename());
+            Path path = Paths.get(Constant.ITEM_PATH_LINUX +File.separator+file.getOriginalFilename());
             Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
         }
     } catch (Exception e) {

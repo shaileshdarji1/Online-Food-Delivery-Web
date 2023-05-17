@@ -1,7 +1,6 @@
 package com.food.config;
 
 import com.food.entity.User;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
 import java.util.Collection;
 
+
 public class CustomUserDetails implements UserDetails {
+
 
     private User user;
 
@@ -20,8 +21,9 @@ public class CustomUserDetails implements UserDetails {
     public CustomUserDetails() {
     }
 
-    public User getCurrentlyLoggedInUser(Authentication authentication){
-        return user;
+    public User getUser() {
+
+        return this.user;
     }
 
 

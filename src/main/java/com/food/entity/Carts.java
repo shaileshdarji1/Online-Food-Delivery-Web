@@ -18,17 +18,13 @@ public class Carts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cartId;
     private Integer quantity;
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
+    @ManyToOne()
     @JoinColumn(
             name = "user_id",
             referencedColumnName = "userId"
     )
     private User user;
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
+    @ManyToOne()
     @JoinColumn(
             name="item_id",
             referencedColumnName = "itemId"

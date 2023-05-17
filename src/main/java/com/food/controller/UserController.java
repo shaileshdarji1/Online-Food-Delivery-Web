@@ -1,7 +1,7 @@
 package com.food.controller;
 
-import com.food.config.CustomUserDetails;
-import com.food.entity.User;
+import com.food.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping("/")
-    public String home(){
+    @Autowired
+    UserService userService;
 
-        User user =
+    @RequestMapping("/")
+    public String home() {
         return "index";
     }
 }
