@@ -3,6 +3,7 @@ package com.food.controller;
 import com.food.dto.ItemDto;
 import com.food.entity.Category;
 import com.food.entity.Item;
+import com.food.helper.Constant;
 import com.food.services.CategoryService;
 import com.food.services.ItemService;
 import org.modelmapper.ModelMapper;
@@ -61,8 +62,7 @@ public class AdminController {
                 System.out.println("File is Empty");
             } else {
                 category.setImageUrl(file.getOriginalFilename());
-                File saveFile = new ClassPathResource("static/image/category").getFile();
-                Path path = Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
+                Path path = Paths.get(Constant.CATEGORY_PATH +File.separator+file.getOriginalFilename());
                 Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
             }
             if (category != null) {
@@ -78,24 +78,18 @@ public class AdminController {
     public String saveItem(@ModelAttribute ItemDto itemDto,@RequestParam("imageUrl") MultipartFile file) throws IOException {
         Item item = modelMapper.map(itemDto, Item.class);
 
+        try{
         //processing and upload file
-        try {
-            if (file.isEmpty()) {
-                System.out.println("File is Empty");
-            } else {
-                item.setImageUrl(file.getOriginalFilename());
-                String path="image";
-                String filePath = path + File.separator + file.getOriginalFilename();
-                File f = new File(path);
-                if(!f.exists()){
-                    f.mkdir();
-                }
-                Files.copy(file.getInputStream(),Paths.get(path));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (file.isEmpty()) {
+            System.out.println("File is Empty");
+        } else {
+            item.setImageUrl(file.getOriginalFilename());
+            Path path = Paths.get(Constant.ITEM_PATH +File.separator+file.getOriginalFilename());
+            Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
         }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
         item.setCategory(categoryService.findCategoryById(itemDto.getCategoryId()));
         Date date = Date.valueOf(LocalDate.now());

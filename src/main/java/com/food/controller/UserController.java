@@ -1,5 +1,7 @@
 package com.food.controller;
 
+import com.food.config.CustomUserDetails;
+import com.food.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,6 +11,8 @@ public class UserController {
 
     @RequestMapping("/")
     public String home(){
+
+        User user =
         return "index";
     }
 }

@@ -54,7 +54,7 @@ let xhr = new XMLHttpRequest();
                          cardTop.setAttribute('id','card-top');
 
                          var img= document.createElement('img');
-                         img.src=itempath+item.imageUrl;
+                         img.src="/image/item/"+item.imageUrl;
 
                          var itemName= document.createElement('p');
                          itemName.setAttribute('id','item-name');
