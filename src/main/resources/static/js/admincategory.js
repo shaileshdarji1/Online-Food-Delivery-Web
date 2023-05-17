@@ -67,6 +67,4 @@ let xhr = new XMLHttpRequest();
     }
     table.innerHTML=htmlTemplate;
 }
-
-
 }

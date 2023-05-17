@@ -15,4 +15,9 @@ public class UserController {
         User user =
         return "index";
     }
+
+    @RequestMapping("/cart")
+    public String cart(){
+        return "cart";
+    }
 }
