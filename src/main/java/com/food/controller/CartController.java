@@ -37,12 +37,13 @@ public class CartController {
         return cartService.findCartProduct();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/add_cart")
     public String saveCart(@RequestBody CartDto cartDto) {
         if (cartDto != null) {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             Carts carts = modelMapper.map(cartDto, Carts.class);
-            carts.setItem(itemService.getItem(cartDto.getItem_id()));
+            carts.setItem(itemService.getItem(cartDto.getItemId()));
             UserDto userDto = userService.getCurrentlyLoggedInUser(auth);
             User user = modelMapper.map(userDto, User.class);
             carts.setUser(user);

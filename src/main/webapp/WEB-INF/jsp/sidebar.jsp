@@ -10,7 +10,7 @@
                  <a href="#">Category</a>
                  <a href="#">Your Orders</a>
                  <a href="#">Wishlists</a>
-                 <a href="#">Cart</a>
+                 <a href="http://localhost:8080/user/cart">Cart</a>
                  <a href="#">Contact</a>
                  <a href="#">Checkout</a>
              </div>

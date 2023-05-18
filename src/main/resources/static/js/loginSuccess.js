@@ -1,5 +1,4 @@
 // A $( document ).ready() block.
-var itempath="target/classes/static/image/item/";
 $( document ).ready(function() {
     console.log( "ready!" );
     getCategory();
@@ -53,17 +52,33 @@ let xhr = new XMLHttpRequest();
 
         // Set the innerHTML of the new div with the provided code
         newDiv.innerHTML = '<div class="card" style="width: 15rem;">'+
-                '<img class="card-img-top" src="/image/item/'+item.imageUrl+'" alt="Card image cap">'+
+                '<img class="card-img-top" src="/image/item/'+item.imageUrl+'" width="180px" height="200px" style="overflow: hidden;"alt="Card image cap">'+
                 '<div class="card-body">'+
-                    '<h5 class="card-title">'+item.name+'</h5>'+
+                    '<h4 class="card-title">'+item.name+'</h4>'+
                     '<p class="card-text">'+item.description+'</p>'+
-                    '<a href="#" class="btn btn-primary">Add Cart</a>'+
+                     '<div class="add-cart-price"><h6 class="card-subtitle mt-1 text-muted">&#8377; '+item.price+'</h6>'+
+                     '<div class="card-quantity">'+
+                              '<button class="decrement">-</button>'+
+                              '<input id="num" type="number" value="1" min="1" >'+
+                              '<button class="increment">+</button>'+
+                            '</div></div>'+
+                    '<a href="#" class="btn btn-primary btn-block add-cart-button" id="'+item.itemId+'">Add Cart</a>'+
                 '</div>'+
             '</div>';
         food.appendChild(newDiv);
         }
-
+          var script = document.createElement('script');
+            script.type = "text/javascript";
+            script.src="/js/index.js"
+            document.getElementsByTagName('head')[0].appendChild(script);
         }
 
-}
+//var quantityInput = document.querySelector('input[type="number"]');
+//
+//        addToCartBtn.addEventListener('click', () => {
+//          const itemName = document.querySelector('.card-title').textContent;
+//          const quantity = parseInt(quantityInput.value);
+//          alert(`Added ${quantity} ${itemName}(s) to the cart.`);
+//        });
 
+}

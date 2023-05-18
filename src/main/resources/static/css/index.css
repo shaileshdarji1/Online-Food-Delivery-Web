@@ -163,3 +163,38 @@ body{
     background: whitesmoke;
 }
 
+ .card-quantity {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .card-quantity input {
+      width: 40px;
+      height: 30px;
+      padding: 5px;
+      text-align: center;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .card-quantity button {
+      background-color: #ccc;
+      border: none;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .add-cart-price{
+     display:flex;
+     justify-content: space-between;
+     text-align: center;
+    }
