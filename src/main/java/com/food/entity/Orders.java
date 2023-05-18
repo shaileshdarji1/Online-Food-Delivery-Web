@@ -22,10 +22,8 @@ public class Orders {
             unique = true
     )
     private String orderName;
-    private Integer quality;
-    private String status;
-    private Date createdDate;
-
+    private Integer quantity;
+    private String status = "pending";
     @ManyToOne(
             cascade = CascadeType.ALL
     )
@@ -43,4 +41,6 @@ public class Orders {
             referencedColumnName = "itemId"
     )
     private Item item;
+    private Integer price;
+    private Integer totalAmount;
 }
