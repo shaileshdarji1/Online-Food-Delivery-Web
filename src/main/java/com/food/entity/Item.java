@@ -25,7 +25,9 @@ public class Item {
     private boolean isActive;
     private Date createdDate;
 
-    @ManyToOne()
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     @JoinColumn(
             name = "category_id",
             referencedColumnName = "categoryId"

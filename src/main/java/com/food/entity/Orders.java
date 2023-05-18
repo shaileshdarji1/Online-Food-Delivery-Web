@@ -5,10 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.sql.Date;
 
+@Component
 @Entity
 @Data
 @AllArgsConstructor
@@ -18,26 +19,26 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderId;
-    @Column(
-            unique = true
-    )
     private String orderName;
-    private Integer quality;
+    private Integer quantity;
     private String status;
-    private Date createdDate;
-
     @ManyToOne(
+            cascade = CascadeType.ALL
     )
     @JoinColumn(
-            name = "user_id",
+            name="user_id",
             referencedColumnName = "userId"
     )
     private User user;
 
-    @ManyToOne()
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn(
-            name = "item_id",
+            name="item_id",
             referencedColumnName = "itemId"
     )
     private Item item;
+    private Float price;
+    private Float totalAmount;
 }

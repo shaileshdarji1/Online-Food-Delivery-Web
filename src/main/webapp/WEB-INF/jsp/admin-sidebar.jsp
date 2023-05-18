@@ -3,12 +3,9 @@
           <span class="material-icons-outlined">menu</span>
         </div>
         <div class="header-left">
-          <span class="material-icons-outlined">search</span>
         </div>
         <div class="header-right">
-          <span class="material-icons-outlined">notifications</span>
-          <span class="material-icons-outlined">email</span>
-          <span class="material-icons-outlined">account_circle</span>
+
         </div>
 </header>
 
@@ -38,22 +35,12 @@
           </li>
           <li class="sidebar-list-item">
             <a href="#">
-              <span class="material-icons-outlined">add_shopping_cart</span> Purchase Orders
+              <span class="material-icons-outlined">add_shopping_cart</span> Cart
             </a>
           </li>
           <li class="sidebar-list-item">
             <a href="#">
-              <span class="material-icons-outlined">shopping_cart</span> Sales Orders
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">poll</span> Reports
-            </a>
-          </li>
-          <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">settings</span> Settings
+              <span class="material-icons-outlined">shopping_cart</span> Orders
             </a>
           </li>
         </ul>

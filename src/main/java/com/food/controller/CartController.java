@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cart")
+@CrossOrigin(origins = "*")
 public class CartController {
 
     @Autowired
@@ -31,15 +32,29 @@ public class CartController {
     @Autowired
     ModelMapper modelMapper;
 
+    @Autowired
+    CartDto cartDto;
+
+
     @RequestMapping("/")
     @ResponseBody
     public List<Carts> findCartProduct() {
         return cartService.findCartProduct();
     }
 
-    @CrossOrigin(origins = "*")
-    @PostMapping("/add_cart")
-    public String saveCart(@RequestBody CartDto cartDto) {
+    @RequestMapping("/usercart")
+    @ResponseBody
+    public List<Carts> findCardProductByUserId() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDto userDto = userService.getCurrentlyLoggedInUser(auth);
+        User user = modelMapper.map(userDto, User.class);
+        return cartService.findCartProductByUser(user);
+    }
+
+    @PostMapping("/add_cart/{itemId}/{quantity}")
+    public void saveCart(@PathVariable("itemId") Integer itemId, @PathVariable("quantity") Integer quantity) {
+        cartDto.setItemId(itemId);
+        cartDto.setQuantity(quantity);
         if (cartDto != null) {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             Carts carts = modelMapper.map(cartDto, Carts.class);
@@ -48,8 +63,7 @@ public class CartController {
             User user = modelMapper.map(userDto, User.class);
             carts.setUser(user);
             cartService.saveProduct(carts);
-            return "Success";
+
         }
-        return "Failed";
     }
 }

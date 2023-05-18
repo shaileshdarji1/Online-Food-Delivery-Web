@@ -61,8 +61,8 @@ public class AdminController {
                 System.out.println("File is Empty");
             } else {
                 category.setImageUrl(file.getOriginalFilename());
-                Path path = Paths.get(Constant.CATEGORY_PATH +File.separator+file.getOriginalFilename());
-                Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
+                Path path = Paths.get(Constant.CATEGORY_PATH_LINUX + File.separator + file.getOriginalFilename());
+                Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
             }
             if (category != null) {
                 categoryService.saveCategory(category);
@@ -74,21 +74,22 @@ public class AdminController {
     }
 
     @PostMapping("/add_item")
-    public String saveItem(@ModelAttribute ItemDto itemDto,@RequestParam("imageUrl") MultipartFile file) throws IOException {
+    public String saveItem(@ModelAttribute ItemDto itemDto, @RequestParam("imageUrl") MultipartFile file) throws IOException {
         Item item = modelMapper.map(itemDto, Item.class);
+        item.setItemId(null);
 
-        try{
-        //processing and upload file
-        if (file.isEmpty()) {
-            System.out.println("File is Empty");
-        } else {
-            item.setImageUrl(file.getOriginalFilename());
-            Path path = Paths.get(Constant.ITEM_PATH +File.separator+file.getOriginalFilename());
-            Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
+        try {
+            //processing and upload file
+            if (file.isEmpty()) {
+                System.out.println("File is Empty");
+            } else {
+                item.setImageUrl(file.getOriginalFilename());
+                Path path = Paths.get(Constant.ITEM_PATH_LINUX + File.separator + file.getOriginalFilename());
+                Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
 
         item.setCategory(categoryService.findCategoryById(itemDto.getCategoryId()));
         Date date = Date.valueOf(LocalDate.now());

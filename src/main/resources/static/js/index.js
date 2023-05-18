@@ -24,22 +24,11 @@ $( document ).ready(function() {
               "itemId":itemId,
               "quantity":quantity
            }
-          $.ajax({
-           url:"localhost:8080/cart/add_cart",
-           type:"POST",
-           headers:{
-           token:"",
-           },
-           data,
-           success:function(response,status){
-           console.log({response,status});
-           },
-           error:function(response,status){
-           console.log({response,status});
-           },
-           });
+           let xhr = new XMLHttpRequest();
+                   xhr.open('POST','http://localhost:8080/cart/add_cart/'+this.id+'/'+quantity,true);
+                   xhr.send()
            alert('Added ' + quantity + ' ' + itemName + '(s) to the cart.');
-
+           location.reload();
           })
 
 

@@ -1,6 +1,7 @@
 package com.food.services.impl;
 
 import com.food.entity.Carts;
+import com.food.entity.User;
 import com.food.repository.CartRepository;
 import com.food.services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,15 @@ public class CartServiceImpl implements CartService {
     @Override
     public List<Carts> findCartProduct() {
         return cartRepository.findAll();
+    }
+
+    @Override
+    public List<Carts> findCartProductByUser(User user) {
+        return cartRepository.findAllItemByUser(user);
+    }
+
+    @Override
+    public void deleteItemByUser(User user) {
+       cartRepository.deleteItemByUser(user);
     }
 }

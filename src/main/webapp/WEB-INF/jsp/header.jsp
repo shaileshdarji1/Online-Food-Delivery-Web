@@ -11,7 +11,7 @@
         <div class="nav_right">
             <ul>
                 <li class="nr_li">
-                    <i class="fa fa-shopping-cart"></i>
+                    <a href="http://localhost:8080/user/cart" style="text-decoration: none;color:white;"><i class="fa fa-shopping-cart"></i></a>
                 </li>
                 <li class="nr_li">
                     <i class="fa fa-shopping-bag"></i>
