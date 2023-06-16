@@ -33,4 +33,9 @@ public class CategoryServiceImpl implements CategoryService {
         Category category= categoryRepository.findCategory(category_id);
         categoryRepository.delete(category);
     }
+
+    @Override
+    public long count() {
+        return categoryRepository.count();
+    }
 }

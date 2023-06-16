@@ -21,10 +21,7 @@ public class Orders {
     private Integer orderId;
     private String orderName;
     private Integer quantity;
-    private String status;
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
+    @ManyToOne
     @JoinColumn(
             name="user_id",
             referencedColumnName = "userId"
@@ -41,4 +38,13 @@ public class Orders {
     private Item item;
     private Float price;
     private Float totalAmount;
+
+    public Orders(String name, Integer quantity, User user, Item item, Float price) {
+        this.orderName=name;
+        this.quantity = quantity;
+        this.user= user;
+        this.item=item;
+        this.price=price;
+        this.totalAmount=price*quantity;
+    }
 }

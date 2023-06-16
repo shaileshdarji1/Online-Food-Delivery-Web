@@ -23,6 +23,5 @@ public class Category {
     private Integer categoryId;
     private String name;
     private String imageUrl;
-    private boolean isActive;
     private Date createdDate;
 }

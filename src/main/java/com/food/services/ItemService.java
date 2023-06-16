@@ -12,4 +12,6 @@ public interface ItemService {
     public void delete(Integer item_id);
 
     public List<Item> findAllItem();
+
+    public long count();
 }

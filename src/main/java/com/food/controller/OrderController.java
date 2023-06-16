@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/orders")
@@ -26,9 +27,6 @@ public class OrderController {
     OrderService orderService;
 
     @Autowired
-    Orders order;
-
-    @Autowired
     UserService userService;
 
     @Autowired
@@ -36,33 +34,29 @@ public class OrderController {
     @Autowired
     ModelMapper modelMapper;
 
-    @RequestMapping("/{userId}")
+    @RequestMapping("/")
+    public List<Orders> findAllOrder(){
+        return orderService.findAllOrder();
+    }
+    @RequestMapping("/show")
     @ResponseBody
-    public List<Orders> showOrders(@PathVariable("userId") Integer userId) {
-        System.out.println(userId);
-        return orderService.showOrders(userId);
+    public List<Orders> showOrders() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDto userDto = userService.getCurrentlyLoggedInUser(auth);
+        User user = modelMapper.map(userDto, User.class);
+        return orderService.showOrders(user);
     }
 
     @RequestMapping("/add_order")
-    public List<Orders> addOrder() {
+    public void addOrder() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDto userDto = userService.getCurrentlyLoggedInUser(auth);
         User user = modelMapper.map(userDto, User.class);
         List<Carts> carts = cartService.findCartProductByUser(user);
-        List<Orders> orders = null;
-        carts.forEach(carts1 -> {
-            order.setOrderName(carts1.getItem().getName());
-            order.setStatus("Pending");
-            order.setUser(carts1.getUser());
-            order.setQuantity(carts1.getQuantity());
-            order.setItem(carts1.getItem());
-            order.setPrice(carts1.getItem().getPrice());
-            order.setTotalAmount(carts1.getItem().getPrice()*carts1.getQuantity());
-            orders.add(order);
-        });
+        List<Orders> orders =orderService.getOrderfromCart(carts);
         if (user != null) {
-            return orders;
+            orderService.addOrder(orders);
+            cartService.deleteItemByUser(user);
         }
-        return null;
     }
 }

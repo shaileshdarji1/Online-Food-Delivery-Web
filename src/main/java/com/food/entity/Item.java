@@ -13,7 +13,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Item {
+public class Item{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,9 @@ public class Item {
     private String description;
     private Float price;
     private String imageUrl;
-    private boolean isActive;
     private Date createdDate;
 
-    @ManyToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(
             name = "category_id",
             referencedColumnName = "categoryId"

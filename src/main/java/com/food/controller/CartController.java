@@ -66,4 +66,9 @@ public class CartController {
 
         }
     }
+
+    @PostMapping("/delete/{cart_id}")
+    public void deleteCategory(@PathVariable("cart_id") Integer cartId) {
+        cartService.deleteCart(cartId);
+    }
 }

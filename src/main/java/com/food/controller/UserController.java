@@ -21,4 +21,14 @@ public class UserController {
     public String cart(){
         return "cart";
     }
+
+    @RequestMapping("/order")
+    public String order(){
+        return "order";
+    }
+
+    @RequestMapping("/contact")
+    public String contact(){
+        return "contact";
+    }
 }

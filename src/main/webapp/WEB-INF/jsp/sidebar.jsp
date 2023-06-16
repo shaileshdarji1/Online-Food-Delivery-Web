@@ -7,11 +7,9 @@
          <div id="menu">
              <div class="menu-item">
                  <a href="http://localhost:8080/user/">Homepage</a>
-                 <a href="#">Category</a>
-                 <a href="#">Your Orders</a>
-                 <a href="#">Wishlists</a>
+                 <a href="http://localhost:8080/user/order">Your Orders</a>
                  <a href="http://localhost:8080/user/cart">Cart</a>
-                 <a href="#">Contact</a>
+                 <a href="http://localhost:8080/user/contact">Contact</a>
              </div>
          </div>
   </body>

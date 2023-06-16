@@ -32,4 +32,9 @@ class ItemServiceImpl implements ItemService {
         return itemRepository.findAll();
     }
 
+    @Override
+    public long count() {
+        return itemRepository.count();
+    }
+
 }

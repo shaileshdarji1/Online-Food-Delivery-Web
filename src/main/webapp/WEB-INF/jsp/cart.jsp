@@ -40,16 +40,13 @@
                                 <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                                 <hr class="my-4">
                                 <div id="summary">
-
                                 </div>
                                 <div class="d-flex justify-content-between mb-5">
-                                  <h5 class="text-uppercase" >Total price</h5>
+                                  <h5 class="text-uppercase">Total price</h5>
                                   <h5 id="total-price-cart">0</h5>
                                 </div>
-
-                                <button type="button" class="btn btn-block btn-lg"
-                                  data-mdb-ripple-color="dark" style="background:#32be8f;color:white;">Place Order</button>
-
+                                <button type="button" class="btn btn-block btn-lg" data-mdb-ripple-color="dark"
+                                  style="background:#32be8f;color:white;" onclick="placedOrder()">Place Order</button>
                               </div>
                             </div>
                           </div>

@@ -34,4 +34,17 @@ public class CartServiceImpl implements CartService {
     public void deleteItemByUser(User user) {
        cartRepository.deleteItemByUser(user);
     }
+
+    @Override
+    public long count() {
+        return cartRepository.count();
+    }
+
+    @Override
+    public void deleteCart(Integer cartId) {
+        cartRepository.delete(cartRepository.findCart(cartId));
+    }
+
+
+
 }

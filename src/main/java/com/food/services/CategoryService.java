@@ -12,4 +12,6 @@ public interface CategoryService {
     public Category findCategoryById(Integer category_id);
 
     public void deleteCategory(Integer category_id);
+
+    public long count();
 }

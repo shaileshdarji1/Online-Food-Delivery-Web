@@ -8,6 +8,5 @@ public class ItemDto {
     private String description;
     private Float price;
     private Integer quality;
-    private boolean isActive;
     private Integer categoryId;
 }

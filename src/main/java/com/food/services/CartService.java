@@ -15,4 +15,9 @@ public interface CartService {
     public List<Carts> findCartProductByUser(User user);
 
     public void deleteItemByUser(User user);
+
+    public long count();
+
+    public void deleteCart(Integer cartId);
+
 }
