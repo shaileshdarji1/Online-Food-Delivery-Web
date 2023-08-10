@@ -1,25 +1,30 @@
 package com.food.controller;
 
+import com.food.entity.Product;
 import com.food.entity.User;
 import com.food.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
+
 public class HomeController {
+
+
     @Autowired
     UserService userService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login() {
         return "login";
     }
@@ -47,6 +52,4 @@ public class HomeController {
         }
         return "redirect:/login";
     }
-
-
 }

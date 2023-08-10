@@ -24,7 +24,7 @@
       </a>
     </li>
     <li class="sidebar-list-item">
-      <a href="http://localhost:8080/admin/category">
+      <a href="/admin/category">
         <span class="material-icons-outlined">inventory_2</span> Category
       </a>
     </li>
